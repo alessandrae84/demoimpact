@@ -1,0 +1,43 @@
+.hidden {
+  display: none !important;
+}
+
+.bgVideo {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 0;
+}
+
+.gonext {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%) scale(1);
+  background: rgba(178, 35, 23, 0.5);
+  border-radius: 50%;
+  margin: 10px;
+  height: 80px;
+  width: 80px;
+  box-shadow: 0 0 0 0 rgb(178, 35, 23);
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 10pt;
+  z-index: 99999;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5 ease;
+}
+.gonext:hover {
+  background: rgb(178, 35, 23);
+}/*# sourceMappingURL=variables_mixins_utils.css.map */

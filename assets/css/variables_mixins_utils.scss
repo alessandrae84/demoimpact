@@ -1,0 +1,190 @@
+//VARIABLES
+$white: #fff;
+$black: #000;
+$generaliColor: #b22317;
+
+$borderstyle: 1px solid #ebebeb;
+$boxshadow: 4px 8px 0 rgba(0, 0, 0, 0.012), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+$transitions: all 0.5s ease;
+
+//MIXINS
+@mixin flex($dir: row, $jc: center, $ac: center) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jc;
+  align-items: $ac;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.bgVideo {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.gonext {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%) scale(1);
+  background: rgba(178, 35, 23, 0.5);
+  border-radius: 50%;
+  margin: 10px;
+  height: 80px;
+  width: 80px;
+  box-shadow: 0 0 0 0 rgba(178, 35, 23, 1);
+  animation: pulse 2s infinite;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 10pt;
+  z-index: 99999;
+  cursor: pointer;
+  @include flex;
+  transition: all 0.5 ease;
+
+  &:hover {
+    background: rgba(178, 35, 23, 1);
+  }
+}
+
+@mixin overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background-color: $generaliColor;
+  @include square(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+@mixin chaptersWheel($home: true) {
+  .chapterswheel {
+    @include flex(row, end, center);
+
+    @if $home {
+      @include square(400px);
+      border: 3px solid $generaliColor;
+      animation: rotation 120s linear infinite;
+    } @else {
+      @include square(100px);
+      border: 2px solid $generaliColor;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+    backdrop-filter: blur(2px);
+    // filter: drop-shadow(2px 4px 20px $generaliColor);
+    background: transparent;
+
+    &::before {
+      @if $home {
+        animation: norotation 120s linear infinite;
+      }
+      content: "";
+
+      @if $home {
+        @include square(250px);
+      } @else {
+        @include square(20px);
+      }
+
+      @include flex(column);
+      z-index: 0;
+      padding: 30px;
+      border: 1px solid $generaliColor;
+      background: {
+        image: url("../img/logo_generali.svg");
+        color: rgba(255, 255, 255, 0.1);
+        size: 50%;
+        repeat: no-repeat;
+        position: center;
+      }
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .chapter {
+      @if $home {
+        @include square(120px);
+        animation: norotation 120s linear infinite;
+        border: 2px solid $generaliColor;
+      } @else {
+        @include square(20px);
+        border: 2px solid $generaliColor;
+      }
+
+      @include flex(column);
+      // border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transition: all 0.5s ease-in-out;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      border-radius: 50%;
+      backdrop-filter: blur(20px);
+      transition: $transitions;
+      z-index: 4;
+
+      // filter: drop-shadow(2px 4px 6px black);
+      background: {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      img {
+        @include square(40px);
+        transition: $transitions;
+      }
+
+      @if $home {
+        .ch-title {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transition: opacity 0.5s ease;
+          text-align: center;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 800;
+          color: #b22317;
+          margin-top: 5px;
+          text-transform: uppercase;
+          transition: $transitions;
+          // @include square(100%);
+          // background: #fff;
+        }
+
+        &:hover {
+          // line-height: 10pt;
+          background: {
+            // size: 25%;
+            color: rgba(255, 255, 255, 1);
+            // position: center 20%;
+          }
+        }
+      }
+    }
+  }
+}

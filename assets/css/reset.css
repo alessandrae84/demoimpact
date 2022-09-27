@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Mukta Vaani", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+html body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+html body a,
+html body p,
+html body span,
+html body h1,
+html body h2,
+html body h3,
+html body h4 {
+  font-size: 12px;
+  font-family: "Mukta Vaani", sans-serif;
+  text-decoration: none;
+}
+html body a b,
+html body p b,
+html body span b,
+html body h1 b,
+html body h2 b,
+html body h3 b,
+html body h4 b {
+  font-family: "Mukta Vaani bold", sans-serif;
+}
+html body h1,
+html body h2,
+html body h3 {
+  font-size: 30px;
+}/*# sourceMappingURL=reset.css.map */
