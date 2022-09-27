@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mail</title>
+    <style>
+        video {
+            pointer-events: none;
+        }
+
+        video::-webkit-media-controls {
+            display: none;
+        }
+
+        video::-webkit-media-controls-play-button {
+            display: none;
+        }
+
+        video::-webkit-media-controls-volume-slider {
+            display: none;
+        }
+
+        video::-webkit-media-controls-mute-button {
+            display: none;
+        }
+
+        video::-webkit-media-controls-timeline {
+            display: none;
+        }
+
+        video::-webkit-media-controls-current-time-display {
+            display: none;
+        }
+
+        video::-webkit-media-controls-start-playback-button {
+            display: none;
+        }
+
+        table {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #dddddd;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .progressbar {
+            position: relative;
+            animation: bar 10s linear infinite;
+            margin-top: -5px;
+            height: 5px;
+            border-radius: 0px;
+            background-color: red;
+        }
+
+        .progressbar:after {
+            content: "";
+            position: absolute;
+            top: -4px;
+            right: 0px;
+            background-color: red;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+        }
+
+        @-o-keyframes bar {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes bar {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @-webkit-keyframes bar {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @-moz-keyframes bar {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body
+    style="width: 100%; height: 100%; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center;">
+    <table border="0" cellpadding="0" cellspacing="0" width="auto" style="max-width: 90%; border-collapse: collapse;">
+        <tr style="width: 100%; height: 100%; display: flex; flex-direction:column;align-items:center">
+            <td>
+                <div style="width: 100%;">
+                    <video style="width: 100%; object-fit:contain; border-radius: 5px 5px 0 0 ;" playsinline preload
+                        muted loop src="./assets/videos/CLM_mail.mp4"></video>
+                </div>
+                <div class="progressbar"></div>
+                </div>
+                <div
+                    style="display: flex; align-items:center; justify-content: space-around; height: 50px; border-radius: 0 0 5px 5px; background-color: #b22317;">
+                    <div style="width:80%;">
+                        <svg style="margin: 0 5px 0 0;" class="prew" width="16" height="18" viewBox="0 0 16 18"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 17L5 9L15 1V17Z" fill="white" stroke="white" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M1 16V2" stroke="white" stroke-width="4" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+
+                        <svg style="margin: 0 5px;" width="12" height="16" viewBox="0 0 12 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 0H0V16H4V0Z" fill="white" />
+                            <path d="M12 0H8V16H12V0Z" fill="white" />
+                        </svg>
+
+                        <svg class="next" style="margin: 0 0 0 5px;" width="16" height="18" viewBox="0 0 16 18"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L11 9L1 17V1Z" fill="white" stroke="white" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M15 2V16" stroke="white" stroke-width="4" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+
+
+                    </div>
+                    <div>
+                        <svg class="vol" width="21" height="16" viewBox="0 0 21 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 1.07001L4 5.07001H0V11.07H4L9 15.07V1.07001Z" fill="white" />
+                            <path
+                                d="M17.07 1C18.9447 2.87528 19.9979 5.41836 19.9979 8.07C19.9979 10.7216 18.9447 13.2647 17.07 15.14M13.54 4.53C14.4774 5.46764 15.004 6.73918 15.004 8.065C15.004 9.39082 14.4774 10.6624 13.54 11.6"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+    <div>
+        <h2>Clicca sul video per iniziare il viaggio!</h2>
+    </div>
+
+    <script>
+        document.querySelectorAll("video").forEach((vid) => {
+            vid.controls = false;
+            vid.setAttribute("autoplay", "autoplay")
+            vid.play();
+        })
+        document.querySelector("table").addEventListener("click", () => { window.location.href = "./index.html?open_video=true" })
+    </script>
+</body>
+
+</html>
